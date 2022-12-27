@@ -515,9 +515,7 @@ player.on("timeupdate", (0, _lodashThrottleDefault.default)(onPlay, 1000));
 function onPlay({ seconds  }) {
     localStorage.setItem(localStorageKey, seconds);
 }
-setCurrentTime().catch(function(error) {
-    error.name;
-});
+setCurrentTime();
 function setCurrentTime() {
     if (localStorage.getItem(localStorageKey)) player.setCurrentTime(localStorage.getItem(localStorageKey));
 }
