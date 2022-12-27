@@ -12,7 +12,6 @@ inputEl.addEventListener('submit', onSubmit);
 onSubmit(); 
 
 function onSubmit(event) {
-    event.preventDefault();
     if(email.value === '' || message.value === '') {
        return alert('Заполните все поля!');
     }
@@ -22,6 +21,8 @@ function onSubmit(event) {
       };
 
     localStorage.removeItem(KEY_STORAGE);
+    event.preventDefault();
+
 }
 
 
@@ -38,10 +39,10 @@ function onLocalFields() {
 saveLocalValue();
 
 function saveLocalValue() {
-    let saveValue = JSON.parse(localStorage.getItem(STORAGE_KEY));
+    let saveValue = JSON.parse(localStorage.getItem(KEY_STORAGE));
     if (saveValue) {
-      email.value = savedData.email;
-      message.value = savedData.message;
+      email.value = saveValue.email;
+      message.value = saveValue.message;
     }
 }
 

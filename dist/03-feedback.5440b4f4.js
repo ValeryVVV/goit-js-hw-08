@@ -514,10 +514,10 @@ inputEl.addEventListener("input", (0, _lodashThrottleDefault.default)(onLocalFie
 inputEl.addEventListener("submit", onSubmit);
 onSubmit();
 function onSubmit(event) {
-    event.preventDefault();
     if (email.value === "" || message.value === "") return alert("\u0417\u0430\u043F\u043E\u043B\u043D\u0438\u0442\u0435 \u0432\u0441\u0435 \u043F\u043E\u043B\u044F!");
     for(var i = 0; i < inputEl.length; i++)inputEl[i].value = "";
     localStorage.removeItem(KEY_STORAGE);
+    event.preventDefault();
 }
 function onLocalFields() {
     const localFields = {
@@ -528,10 +528,10 @@ function onLocalFields() {
 }
 saveLocalValue();
 function saveLocalValue() {
-    let saveValue = JSON.parse(localStorage.getItem(STORAGE_KEY));
+    let saveValue = JSON.parse(localStorage.getItem(KEY_STORAGE));
     if (saveValue) {
-        email.value = savedData.email;
-        message.value = savedData.message;
+        email.value = saveValue.email;
+        message.value = saveValue.message;
     }
 }
 console.log(onLocalFields());

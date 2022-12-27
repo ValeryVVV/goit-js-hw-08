@@ -15,16 +15,7 @@ function onPlay({ seconds }) {
 
 
 
-setCurrentTime().catch(function(error) {
-    switch (error.name) {
-        case 'RangeError':
-            break;
-
-        default:
-
-            break;
-    }
-});
+setCurrentTime();
 
 function setCurrentTime() {
     if (localStorage.getItem(localStorageKey)) {
